@@ -16,6 +16,56 @@
   <link rel="stylesheet" href="assets/css//fontawesome.all.css">
   <link rel="stylesheet" href="assets/css/libraries.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    
+.milestones {
+  min-width: 300px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.milestones p {
+  font-size: 1em;
+  line-height: 1.75em;
+  border-top: 3px solid;
+  -o-border-image: linear-gradient(to right, #0c67a9 0%, #2c1d79 100%);
+     border-image: -webkit-gradient(linear, left top, right top, from(#0c67a9), to(#2c1d79));
+     border-image: linear-gradient(to right, #0c67a9 0%, #2c1d79 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  margin: 0;
+  padding: 40px;
+  counter-increment: section;
+  position: relative;
+  color: white;
+  font-family: "Sora", sans-serif;
+}
+
+.milestones p:nth-child(odd) {
+  border-right: 3px solid;
+  padding-left: 0;
+}
+.milestones p:nth-child(odd):before {
+  left: 100%;
+  margin-left: -20px;
+}
+
+.milestones p:nth-child(even) {
+  border-left: 3px solid;
+  padding-right: 0;
+}
+
+.milestones p:first-child {
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.milestones p:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+  </style>
 </head>
 
 <body>
@@ -194,79 +244,6 @@
 
 
 
-        <!-- ========================
-      Features layout1
-    ========================== -->
-    <section class="features-layout1">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="heading-layout2 mb-50">
-              <h2 class="heading__subtitle">Tailored Solutions For Your Security Priorities</h2>
-              <h3 class="heading__title">Our Milestones</h3>
-            </div><!-- /heading -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <div class="row">
-          
-          
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="feature-item">
-              <div class="feature__body">
-                <div class="feature__icon">
-                  <i class="icon-home-automation"></i>
-                </div><!-- /.feature__icon -->
-                <h4 class="feature__title">First Pilot Contractor of KFON Project. 500 Kilometer Fiber Cabling over KSEB Poles Done by BLACK CAT</h4>
-              </div><!-- /.feature__body -->
-            </div><!-- /.feature-item -->
-          </div><!-- /.col-lg-3 -->
-          <!-- feature item #1 -->
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="feature-item">
-              <div class="feature__body">
-                <div class="feature__icon">
-                  <i class="icon-smart-control"></i>
-                </div><!-- /.feature__icon -->
-                <h4 class="feature__title"> Completed Projects 3000 Plus
-                </h4>
-              </div><!-- /.feature__body -->
-            </div><!-- /.feature-item -->
-          </div><!-- /.col-lg-3 -->
-          <!-- feature item #2 -->
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="feature-item">
-              <div class="feature__body">
-                <div class="feature__icon">
-                  <i class="icon-surveillance"></i>
-                </div><!-- /.feature__icon -->
-                <h4 class="feature__title">Structured Cable Laying 1000 Kilometer Plus</h4>
-              </div><!-- /.feature__body -->
-            </div><!-- /.feature-item -->
-          </div><!-- /.col-lg-3 -->
-          <!-- feature item #3 -->
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="feature-item">
-              <div class="feature__body">
-                <div class="feature__icon">
-                  <i class="icon-surveillance2"></i>
-                </div><!-- /.feature__icon -->
-                <h4 class="feature__title"> ISO Certification</h4>
-              </div><!-- /.feature__body -->
-            </div><!-- /.feature-item -->
-          </div><!-- /.col-lg-3 -->
-          <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="feature-item">
-              <div class="feature__body">
-                <div class="feature__icon">
-                  <i class="icon-intrusion"></i>
-                </div><!-- /.feature__icon -->
-                <h4 class="feature__title">Vendors of Central & State Government Organisations</h4>
-              </div><!-- /.feature__body -->
-            </div><!-- /.feature-item -->
-          </div><!-- /.col-lg-3 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /.Features-layout1 -->
 
 
     <!-- ======================
@@ -304,6 +281,38 @@
       </div><!-- /.container -->
     </section><!-- /.Clients -->
 
+
+
+        <!-- ========================
+      Features layout1
+    ========================== -->
+    <section class="features-layout2 bg-overlay bg-overlay-gradient pt-130">
+      <div class="bg-img"><img src="assets/images/banners/7.jpg" alt="background"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="heading-layout2 heading-light">
+              <h3 class="heading__title text-center">Our Milestones</h3>
+              
+            </div><!-- /heading -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+        
+        <div class="row">
+          <div class="col-12">
+            <div class="milestones">
+              <p>First Pilot Contractor Of KFON Project. 500 Kilometer Fiber Cabling Over KSEB Poles Done By BLACK CAT</p>
+              <p>Completed Projects 3000 Plus</p>
+              <p>Structured Cable Laying 1000 Kilometer Plus</p>
+              <p>ISO Certification</p>
+              <p>Vendors Of Central & State Government Organisations</p>
+            </div>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.Features-layout2 -->
+
+
     <!-- ======================
      Clients
     ========================= -->
@@ -340,97 +349,7 @@
       </div><!-- /.container -->
     </section><!-- /.Clients -->
 
-    <!-- ======================
-     fancyboxs layout1
-    ========================= -->
-    <section class="fancyboxs-layout1 fancybox-light bg-primary pb-0">
-      <div class="container">
-        <div class="row heading heading-light mb-100">
-          <div class="col-sm-12 col-md-12 col-lg-6">
-            <h3 class="heading__title mb-30">Providing The Best Practices for All Security Protocols & Standardizing
-              Procedures.</h3>
-          </div><!-- /.col-lg-6 -->
-          <div class="col-sm-12 col-md-12 col-lg-6">
-            <p class="heading__desc mb-30">We can partner with you to design and implement a scalable integrated
-              security solution that addresses your toughest security challenges, while gaining efficiencies across your
-              systems and teams by standardizing and implementing system automation and powerful solutions help!</p>
-            <p class="heading__desc mb-40">Our experts have undertaken system projects of all sizes and scopes, whether
-              you need security system integration for your corporate. </p>
-            <div class="d-flex align-items-center flex-wrap">
-              <a href="#" class="btn btn__white px-4 mr-30">
-                <span>Discover More Info</span>
-                <i class="icon-arrow-right ml-20"></i>
-              </a>
-              <div class="phone__number phone__number-light">
-                <div class="phone__icon">
-                  <i class="icon-phone"></i>
-                </div>
-                <div>
-                  <span class="email__link d-block">Call 24HR / 7Days</span>
-                  <a class="phone__link d-block mt-2 mb-0" href="tel:0201061245741">02 01061245741</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-      <div class="container-fluid px-0">
-        <div class="row row-gutter-0">
-          <div class="col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0">
-            <div class="fancybox__img">
-              <div class="bg-img"> <img src="assets/images/features/1.jpg" alt="feature"></div>
-            </div><!-- /.fancybox__img -->
-            <div class="fancybox__body">
-              <h4 class="fancybox__title">No Contracts Required</h4>
-              <p class="fancybox__desc">Security shouldn’t come with any strings attached. Every solution is available
-                with no contract to control your home anywhere.</p>
-              <a href="#" class="btn btn__white btn__link">
-                <i class="icon-arrow-right icon-filled"></i>
-              </a>
-            </div><!-- /.feature__body -->
-          </div><!-- /.col-lg-3 -->
-          <div class="col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0">
-            <div class="fancybox__img">
-              <div class="bg-img"> <img src="assets/images/features/2.jpg" alt="feature"></div>
-            </div><!-- /.fancybox__img -->
-            <div class="fancybox__body">
-              <h4 class="fancybox__title">Flexible Payment Plans</h4>
-              <p class="fancybox__desc">Our customers choose the security that’s right for them, and how they want to
-                pay for it any solution is available to you.</p>
-              <a href="#" class="btn btn__white btn__link">
-                <i class="icon-arrow-right icon-filled"></i>
-              </a>
-            </div><!-- /.feature__body -->
-          </div><!-- /.col-lg-3 -->
-          <div class="col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0">
-            <div class="fancybox__img">
-              <div class="bg-img"> <img src="assets/images/features/3.jpg" alt="feature"></div>
-            </div><!-- /.fancybox__img -->
-            <div class="fancybox__body">
-              <h4 class="fancybox__title">Local Service Support</h4>
-              <p class="fancybox__desc">Security shouldn’t come with any strings attached. Every solution is available
-                with no contract to control your home anywhere.</p>
-              <a href="#" class="btn btn__white btn__link">
-                <i class="icon-arrow-right icon-filled"></i>
-              </a>
-            </div><!-- /.feature__body -->
-          </div><!-- /.col-lg-3 -->
-          <div class="col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0">
-            <div class="fancybox__img">
-              <div class="bg-img"> <img src="assets/images/features/4.jpg" alt="feature"></div>
-            </div><!-- /.fancybox__img -->
-            <div class="fancybox__body">
-              <h4 class="fancybox__title">Low Voltage Wiring</h4>
-              <p class="fancybox__desc">Hire the best low voltage wiring contractor for your new construction or cabling
-                needs & an experienced company that designs.</p>
-              <a href="#" class="btn btn__white btn__link">
-                <i class="icon-arrow-right icon-filled"></i>
-              </a>
-            </div><!-- /.feature__body -->
-          </div><!-- /.col-lg-3 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /.fancyboxs layout1 -->
+
 
     <!-- ========================
       Footer
