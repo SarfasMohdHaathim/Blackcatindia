@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Boxes Example</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<label for="mainDropdown">Select Main Category:</label>
+<select id="mainDropdown" onchange="updateSubDropdown()">
+    <option value="surveillance">Surveillance Cameras</option>
+    <option value="automation">Automation</option>
+    <option value="security">Security & Safety</option>
+    <option value="it">IT Services</option>
+    <option value="industry">Industry Solutions</option>
+</select>
+
+<label for="subDropdown" id="subDropdownLabel" class="hidden">Select Sub-Category:</label>
+<select id="subDropdown" class="hidden">
+    <!-- Sub-dropdown options will be dynamically added here -->
+</select>
+
+<script>
+    const subDropdownLabel = document.getElementById("subDropdownLabel");
+    const subDropdown = document.getElementById("subDropdown");
+
+    // Define sub-dropdown options based on the main category
+    const options = {
+        surveillance: ["Residential", "Commercial", "Project Series"],
+        automation: ["Gate Automation", "Automatic Barriers", "Parking Solutions", "Automatic Doors", "Turnstiles", "Queue System", "Detector Machine", "Industrial Doors"],
+        security: ["Home Security", "Commercial"],
+        it: ["Structured Cabling", "IT Projects", "Office Mgmt Solutions"],
+        industry: ["Education", "Energy", "Healthcare", "Logistics", "Manufacturing", "Public Transport", "Retail", "Traffic", "Infrastructure", "Banking & Finance"]
+    };
+
+    function updateSubDropdown() {
+        const mainDropdown = document.getElementById("mainDropdown");
+        const selectedCategory = mainDropdown.value;
+
+        // Clear existing options
+        subDropdown.innerHTML = "";
+
+        if (selectedCategory in options) {
+            // Populate sub-dropdown with options based on the selected category
+            options[selectedCategory].forEach(option => {
+                const optionElement = document.createElement("option");
+                optionElement.value = option.toLowerCase().replace(/\s+/g, "-"); // Convert to lowercase and replace spaces with dashes
+                optionElement.textContent = option;
+                subDropdown.appendChild(optionElement);
+            });
+
+            // Show sub-dropdown and label
+            subDropdownLabel.classList.remove("hidden");
+            subDropdown.classList.remove("hidden");
+        } else {
+            // Hide sub-dropdown and label if no sub-options available
+            subDropdownLabel.classList.add("hidden");
+            subDropdown.classList.add("hidden");
+        }
+    }
+</script>
+
+</body>
+</html>
