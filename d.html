@@ -4,67 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Boxes Example</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 <body>
 
-<label for="mainDropdown">Select Main Category:</label>
-<select id="mainDropdown" onchange="updateSubDropdown()">
-    <option value="surveillance">Surveillance Cameras</option>
-    <option value="automation">Automation</option>
-    <option value="security">Security & Safety</option>
-    <option value="it">IT Services</option>
-    <option value="industry">Industry Solutions</option>
-</select>
-
-<label for="subDropdown" id="subDropdownLabel" class="hidden">Select Sub-Category:</label>
-<select id="subDropdown" class="hidden">
-    <!-- Sub-dropdown options will be dynamically added here -->
-</select>
-
+    <div class="mb-3 row">
+        <label class="col-md-2 col-form-label">Main Menu</label>
+        <div class="col-md-10">
+            <select id="mainMenuSelect" class="form-select">
+                <option value="Surveillance">Surveillance</option>
+                <option value="Automation">Automation</option>
+                <option value="Security & Safety">Security & Safety</option>
+                <option value="IT Services">IT Services</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="mb-3 row">
+        <label class="col-md-2 col-form-label">Sub Menu</label>
+        <div class="col-md-10">
+            <select id="subMenuSelect" class="form-select">
+                <option value="default">Select a Main Menu first</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <h5 class="font-size-14"><i class="mdi mdi-arrow-right text-primary me-1"></i> Sub Menu Options</h5>
+        <p class="sub-header mb-4">Select a sub-menu to see corresponding options</p>
+    
+        <div id="secondSelectContainer" class="sub-menu-options">
+        </div>
+    </div>
+    
 <script>
-    const subDropdownLabel = document.getElementById("subDropdownLabel");
-    const subDropdown = document.getElementById("subDropdown");
+const subMenuOptions = {
+    'Surveillance': {
+        'SELECT SUB SEGMENTS' : [" "],
+        'Residential': ["HD Cameras", "IP Cameras", "DVR", "NVR", "WiFi Cameras"],
+        'Commercial': ["IP Cameras", "PTZ Cameras", "Solar Cameras", "Box Cameras", "Storage Devices"],
+        'Project_Series': ["Mobile DVR", "Enforcement Cameras", "AI Cameras", "ANPR Cameras", "Face Recognition", "Thermal Cameras", "Panoramic Cameras"],
+    },
+    'Automation': {
+        'SELECT SUB SEGMENTS' : [" "],
+        'Gate_Automation': ["Swing Gate", "Telescopic Gate", "Cantilever Gate", "Retractable Gate", "Residential Gate"],
+        'Automatic_Barriers': ["Advertising Barrier", "Folding Barrier", "Swing Barrier", "Fence Bamer", "P Type Barrier", "Speed Barrier", "Flap Barrier"],
+        'Parking_Solutions': ["Parking Sensors", "Ticket Dispenser", "Mobile Cashiering", "Auto Pay Station", "Bollards", "Road Blockers", "Spike Barriers"],
+        'Automatic_Doors': ["Sliding Door", "Glass Door", "Swing Door", "Revolving Door", "Hospital Doors", "Garage Doors", "Awning & Curtains"],
+        'Turnstiles': ["Tripod Turnstiles", "Full Height Turnstiles"],
+        'Queue_System': ["Token System", "Multi Counter"],
+        'Detector_Machine': ["Hand Held", "Door Frame"],
+        'Industrial_Doors': ["Sliding Doors", "Sectional Doors", "Garage Doors", "High Speed Roll Ups", "Shutters", "Roof Automation"],
+    },
+    'Security & Safety': {
+        'SELECT SUB SEGMENTS' : [" "],
+        'Home_Security': ["Burglary Alarm", "Fire Alarm", "Video Door Phone", "Beam Sensor", "Carbon Monoxide Sensor"],
+        'Commercial': ["Alarm System", "Perimeter Sensor", "Electric Fencing", "Guard Petrol System"],
+    },
+    'IT Services': {
+        'SELECT SUB SEGMENTS' : [" "],
+        'Structured_Cabling': ["Network Structural Cabling", "LAN Cable Installation", "Fiber Cable Installation", "Telephone Cabling"],
+        'IT_Projects': ["Wifi Access Points", "Home IT Solutions", "Digital Signage", "POS Machine", "Cash Counting Machine", "Fake Note Detection Machine", "Billing Software"],
+        'Office_Mgmt_Solutions': ["Biometric Devices", "Magnetic Locks", "Safe Lockers", "Readers"],
+    },
+};
+function populateSubMenu() {
+    const mainMenuSelect = document.getElementById("mainMenuSelect");
+    const subMenuSelect = document.getElementById("subMenuSelect");
+    const selectedMainMenu = mainMenuSelect.value;
 
-    // Define sub-dropdown options based on the main category
-    const options = {
-        surveillance: ["Residential", "Commercial", "Project Series"],
-        automation: ["Gate Automation", "Automatic Barriers", "Parking Solutions", "Automatic Doors", "Turnstiles", "Queue System", "Detector Machine", "Industrial Doors"],
-        security: ["Home Security", "Commercial"],
-        it: ["Structured Cabling", "IT Projects", "Office Mgmt Solutions"],
-        industry: ["Education", "Energy", "Healthcare", "Logistics", "Manufacturing", "Public Transport", "Retail", "Traffic", "Infrastructure", "Banking & Finance"]
-    };
+    subMenuSelect.innerHTML = "";
 
-    function updateSubDropdown() {
-        const mainDropdown = document.getElementById("mainDropdown");
-        const selectedCategory = mainDropdown.value;
-
-        // Clear existing options
-        subDropdown.innerHTML = "";
-
-        if (selectedCategory in options) {
-            // Populate sub-dropdown with options based on the selected category
-            options[selectedCategory].forEach(option => {
-                const optionElement = document.createElement("option");
-                optionElement.value = option.toLowerCase().replace(/\s+/g, "-"); // Convert to lowercase and replace spaces with dashes
-                optionElement.textContent = option;
-                subDropdown.appendChild(optionElement);
-            });
-
-            // Show sub-dropdown and label
-            subDropdownLabel.classList.remove("hidden");
-            subDropdown.classList.remove("hidden");
-        } else {
-            // Hide sub-dropdown and label if no sub-options available
-            subDropdownLabel.classList.add("hidden");
-            subDropdown.classList.add("hidden");
-        }
+    const options = subMenuOptions[selectedMainMenu];
+    if (options) {
+        Object.keys(options).forEach(option => {
+            const opt = document.createElement("option");
+            opt.value = option;
+            opt.textContent = option;
+            subMenuSelect.appendChild(opt);
+        });
+    } else {
+        const opt = document.createElement("option");
+        opt.textContent = "No sub-menu options available";
+        subMenuSelect.appendChild(opt);
     }
-</script>
+}
 
+function createSecondSelect() {
+    const subMenuSelect = document.getElementById("subMenuSelect");
+    const selectedSubMenu = subMenuSelect.value;
+    const secondSelectContainer = document.getElementById("secondSelectContainer");
+
+    secondSelectContainer.innerHTML = "";
+
+    const options = subMenuOptions[document.getElementById("mainMenuSelect").value][selectedSubMenu];
+    if (options) {
+        const secondSelect = document.createElement("select");
+        secondSelect.classList.add("form-select", "mb-3");
+        secondSelect.addEventListener("change", () => {
+            console.log("Selected:", secondSelect.value);
+        });
+
+        options.forEach(option => {
+            const opt = document.createElement("option");
+            opt.value = option;
+            opt.textContent = option;
+            secondSelect.appendChild(opt);
+        });
+
+        secondSelectContainer.appendChild(secondSelect);
+    } else {
+        const noOptions = document.createElement("p");
+        noOptions.textContent = "No options available for this submenu";
+        secondSelectContainer.appendChild(noOptions);
+    }
+}
+
+document.getElementById("mainMenuSelect").addEventListener("change", populateSubMenu);
+document.getElementById("subMenuSelect").addEventListener("change", createSecondSelect);
+
+populateSubMenu();
+createSecondSelect();
+</script>
+    
 </body>
 </html>
