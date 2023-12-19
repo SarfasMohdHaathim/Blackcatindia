@@ -1050,8 +1050,8 @@ h6 {
     padding-bottom: 190px;
   }
   .page-title-layout2 {
-    padding-top: 250px;
-    padding-bottom: 150px;
+    padding-top: 150px;
+    padding-bottom: 50px;
   }
   .page-title-layout3 {
     padding-top: 280px;
@@ -7208,9 +7208,7 @@ textarea.form-control {
   background: #fff;
   padding: 33px 36px 36px 40px;
 }
-.portfolio-item:hover {
-  box-shadow: 0 5px 83px 0 rgba(40, 40, 40, 0.11);
-}
+
 .portfolio-item .portfolio__cat a {
   position: relative;
   font-size: 14px;
@@ -7235,7 +7233,6 @@ textarea.form-control {
   font-size: 22px;
   margin-bottom: 16px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -8780,4 +8777,65 @@ textarea.form-control {
   .wrapper-milestone .row{
     margin: 10px 0;
   }
+}
+
+
+.video-banner {
+  position: relative;
+}
+
+.video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video__button {
+  text-align: center;
+  display: inline-flex;
+  position: relative;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 90px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 0;
+}
+
+.video__button:hover {
+  background-color: #ccc;
+}
+
+
+.video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.video__content {
+  text-align: center;
+}
+
+.video__caption {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 24px;
 }
